@@ -1,0 +1,48 @@
+  #dropdowncontainer, #id_cancel, #navbar, #page-header, #page-footer, #page-header, .navbar, #dock, #block-region-side-pre, .fitem_id_mailnow, .fitemtitle, .fdescription, .fheader, .block_adminblock, .settings, #fitem_id_subject, #fitem_id_attachments {
+      display: none !important;
+  }
+
+  body {
+      padding: 0 !important;
+  }
+
+  .fitem_actionbuttons {
+      text-align: center;
+  }
+
+  .feditor {
+      max-width: 100% !important;
+  }
+
+  .error {
+      display: none;
+  }
+
+  h2 {
+      display: none;
+  }
+
+  input, .fitem_fcheckbox {
+      display: none;
+  }
+
+  #region-main {
+      width: 100% !important;
+  }
+
+  #container {
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
+  }
+
+  #yourselection {
+      font-size: 22px;
+      font-weight: 600;
+      color: black;
+      text-align: center;
+  }
+
+  .three-column, .feditor {
+      max-width: 100%;
+  }

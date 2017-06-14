@@ -1,0 +1,79 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://jsonschema.net",
+  "required": false,
+  "properties": {
+    "pluginLocations": {
+      "type": "object",
+      "required": true,
+      "properties": {
+        "config": {
+          "type": "object"
+        },
+        "course": {
+          "type": "object"
+        },
+        "contentobject": {
+          "type": "object"
+        },
+        "article": {
+          "type": "object"
+        },
+        "block": {
+          "type": "object",
+          "properties": {
+            "_moodle": {
+              "type": "object",
+              "required": false,
+              "legend": "Moodle",
+              "properties": {
+                "_isEnabled": {
+                  "type": "boolean",
+                  "default": false,
+                  "title": "Enable for this block",
+                  "legend": "Guide to use this extension <a href='https://docs.google.com/a/kingsonline.eu/document/d/1f7pWiWsz2QtTK7m70ETs6txA_oYtMecPIzR00NeKJX4/edit?usp=sharing'> here</a>.",
+                  "inputType": "Checkbox",
+                  "help": ""
+                },
+                "_type": {
+                  "type": "string",
+                  "required": false,
+                  "default": "discussion",
+                  "title": "Activity type",
+                  "enum": ["discussion", "choice"],
+                  "inputType": {
+                    "type": "Select",
+                    "options": ["discussion", "choice"]
+                  },
+                  "validators": ["required"]
+                },
+                "_link": {
+                  "type": "string",
+                  "required": false,
+                  "default": "",
+                  "title": "Link",
+                  "inputType": "Text",
+                  "validators": [],
+                  "help": "Paste in the link to your Moodle component."
+                },
+                "buttonLabel": {
+                  "type": "string",
+                  "required": false,
+                  "default": "",
+                  "title": "Button Label",
+                  "inputType": "Text",
+                  "validators": [],
+                  "help": "Set the label for the button. Leave blank for default."
+                }
+              }
+            }
+          }
+        },
+        "component": {
+          "type": "object"
+        }
+      }
+    }
+  }
+}
