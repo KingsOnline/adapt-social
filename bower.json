@@ -7,7 +7,7 @@
   "displayName": "Moodle",
   "extension": "moodle",
   "description": "Brings Moodle activities into Adapt. <a href='https://docs.google.com/a/kingsonline.eu/document/d/1f7pWiWsz2QtTK7m70ETs6txA_oYtMecPIzR00NeKJX4/edit?usp=sharing'>Guide on how to use here.</a>",
-  "main": "/js/adapt-moodle.js",
+  "main": "/js/adapt-social.js",
   "keywords": [
     "adapt-plugin",
     "adapt-extension"

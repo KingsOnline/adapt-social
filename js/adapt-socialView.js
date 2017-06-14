@@ -18,9 +18,9 @@ define(function(require) {
 
     launchButton: function(event) {
       if ($(event.target).hasClass('open')) {
-        this.closeLightbox(event); // close
+        Adapt.trigger("sideView:close");
       } else {
-        this.openLightbox(event);
+        Adapt.trigger("sideView:open");
       }
       $('.moodle').removeClass('hidden');
       $('.moodle').siblings().addClass('hidden');
@@ -51,10 +51,6 @@ define(function(require) {
 
     setupCloseButton: function() {
       $('.iframe-controls-title').html(this.attributes._moodle.buttonLabel);
-      var context = this;
-      $(".moodle-close-button").on("click", function() {
-        context.closeLightbox();
-      });
     },
 
     renderIframe: function(type, linkToBlock) {
