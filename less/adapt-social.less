@@ -1,7 +1,7 @@
-.moodle-inner {
+.social-inner {
   padding: 5px;
 
-  .moodle-launch-button {
+  .social-open-button {
     display: block;
     margin: 10px auto;
     width: 150px;
@@ -21,63 +21,15 @@
 }
 
 .moodle-view {
-  z-index: 1000;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  flex-direction: column;
-
-  .moodle-close-button {
-    position: absolute;
-    width: 60px;
-    color: @button-text-color;
-    background-color: transparent;
-    .no-box-shadow;
-
-    &:hover {
-      background-color: transparent;
-      .no-box-shadow;
-    }
-  }
-
-  &.close {
-    .moodle-close-button {
-      right: -400px;
-      .transition-time(1s);
-    }
-  }
-
-  &.open {
-    .moodle-close-button {
-      right: 0;
-      .transition-time(1s);
-    }
-  }
-
-  .iframe-controls-bar {
-    height: 60px;
-  }
-
-  .iframe-controls-title {
-    position: absolute;
-    left: 42%;
-    top: 17px;
-  }
-
   .moodle-iframe-holder {
-    width: 100%;
-    flex: 1;
-    -webkit-box-flex: 1;
-    height: 90%;
-    -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    background: white;
-
-    .moodle {
+    .social {
       height: 100%;
       width: 100%;
+
+      iframe {
+        height: 100%;
+        width: 100%;
+      }
 
       &.hidden {
         display: none;
@@ -85,90 +37,9 @@
     }
 
     &.loading-iframe {
-      background-image: url("assets/ajax-loader.gif");
-      background-repeat: no-repeat;
-      background-position: center;
-
-      .moodle-iframe {
+      .social {
         display: none;
       }
     }
   }
-}
-
-//desktop side-by-side. Bigger than iPad
-@media (min-width: 1023px) {
-  .moodle-view {
-    top: 0;
-    height: 100%;
-    position: fixed;
-    .transition-time(1s);
-    border-left: 2px solid @secondary-color;
-
-    &.close {
-      left: 100%;
-      width: 0;
-    }
-
-    &.open {
-      left: 65%;
-      width: 35%;
-    }
-
-    .moodle-iframe-holder {
-      min-width: 400px;
-    }
-  }
-
-  body.moodle-open {
-    .transition-time(1s);
-    width: 65%;
-
-    .navigation a.icon,
-    .navigation a.icon *,
-    .navigation button:not(.navigation-myNotes),
-    .navigation button:not(.navigation-myNotes) * {
-      color: @disabled-color;
-      border-color: @disabled-color;
-      pointer-events: none;
-      cursor: default;
-    }
-  }
-
-  body.moodle-close {
-    .transition-time(1s);
-    width: 100%;
-  }
-}
-// mobile full screen. Smaller than iPad
-@media (max-width: 1023px) {
-  .moodle-view {
-    top: 0;
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    .transition-time(1s);
-
-    &.close {
-      left: 100%;
-    }
-
-    &.open {
-      left: 0;
-      position: fixed;
-      overflow-y: scroll;
-    }
-  }
-
-  body.moodle-open {
-    overflow: hidden;
-  }
-}
-
-.transition-time(@time) {
-  -webkit-transition: @time;
-  -moz-transition: @time;
-  -ms-transition: @time;
-  -o-transition: @time;
-  transition: @time;
 }

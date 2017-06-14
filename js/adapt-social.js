@@ -8,6 +8,10 @@ define(function(require) {
     loopBlocksInPage(Adapt.contentObjects._byAdaptID[Adapt.location._currentId]);
   });
 
+  Adapt.once('sideView:ready', function() {
+    createSocial();
+  });
+
   function loopBlocksInPage(currentPage) {
     var articles = currentPage[0].attributes._children;
     for (var i = 0; i < articles.length; i++) { // loop through all the articles in the page
@@ -28,4 +32,7 @@ define(function(require) {
     }
   }
 
+  function createSocial() {
+    $('.moodle-iframe-holder').append("<div class='social hidden'><iframe name='socialIframe' id='social-iframe' src='' class='social-iframe'></iframe></div>");
+  }
 });

@@ -13,73 +13,42 @@ define(function(require) {
     },
 
     events: {
-      'click button.moodle-launch-button': 'launchButton'
+      'click button.social-open-button': 'launchButton'
     },
 
     launchButton: function(event) {
       if ($(event.target).hasClass('open')) {
         Adapt.trigger("sideView:close");
+        this.hideSocial();
       } else {
+        $(event.target).addClass('open');
         Adapt.trigger("sideView:open");
+        this.showSocial();
       }
-      $('.moodle').removeClass('hidden');
-      $('.moodle').siblings().addClass('hidden');
     },
 
-    openLightbox: function(event) {
-      $('.moodle-launch-button.open').removeClass('open'); // closes other instances
-      $(event.target).addClass('open');
-      $('body').addClass('moodle-open').removeClass('moodle-close');
-      $('.moodle-view').removeClass('close').addClass('open');
-
-      var linkToBlock = location.protocol + '//' + location.host + location.pathname + '#/id/' + this.attributes._id;
-      if ($('.moodle-iframe').attr('src') != this.attributes._moodle._link) {
-        $('.moodle-iframe').remove();
-        this.renderIframe(this.attributes._moodle._type, linkToBlock);
-      }
-
+    showSocial: function(event) {
+      $('.social').removeClass('hidden');
+      $('.social').siblings().addClass('hidden');
       this.scrollToBlock();
-      this.setupCloseButton();
+      $('.iframe-controls-title').text(this.attributes._moodle.buttonLabel);
+      // prevents reloading if iframe is currently loaded
+      if(document.getElementById('social-iframe').src != this.attributes._moodle._link){
+        Adapt.trigger('sideView:loadIframe', "social", this.attributes._moodle._type, this.attributes._moodle._link)
+        Adapt.trigger('sideView:removeLoading');
+      }
     },
 
     scrollToBlock: function() {
       var $firstChild = '.' + this.attributes._children.models[0].attributes._id;
-      Adapt.scrollTo($($firstChild), {
-        duration: 700
-      });
+      Adapt.scrollTo($($firstChild), {duration: 700});
     },
 
-    setupCloseButton: function() {
-      $('.iframe-controls-title').html(this.attributes._moodle.buttonLabel);
-    },
-
-    renderIframe: function(type, linkToBlock) {
-      $('.moodle-iframe-holder').addClass('loading-iframe');
-      $('.moodle-iframe-holder').append("<div class='moodle'><iframe name='moodleIframe' id='moodleIframe' class='moodle-iframe'></iframe></div>");
-      $('.moodle-iframe').attr('src', this.attributes._moodle._link);
-
-      $('.moodle-iframe').on('load', function() {
-        var adaptCSS = location.protocol + '//' + location.host + location.pathname;
-        adaptCSS = adaptCSS.substring(0, adaptCSS.lastIndexOf('/'));
-        adaptCSS += "/assets/adapt-moodle-iframe-" + type + ".css"
-        $('.moodle-iframe').contents().find("head").append($("<link/>", {
-          rel: "stylesheet",
-          href: adaptCSS,
-          type: "text/css"
-        }));
-
-        document.getElementById('moodleIframe').contentWindow.window.onbeforeunload = null; // prevents error message when leaving moodle page when you haven't submitted.
-
-        setTimeout(function() {
-          $('.moodle-iframe-holder').removeClass('loading-iframe');
-        }, 300);
-      });
-    },
-
-    closeLightbox: function(event) {
-      if (event && event.preventDefault) event.preventDefault();
+    hideSocial: function(event) {
+      if (event && event.preventDefault)
+        event.preventDefault();
       $('.moodle-view').removeClass('open').addClass('close');
-      $('.moodle-launch-button.open').removeClass('open');
+      $('.social-open-button.open').removeClass('open');
       $('body').removeClass('moodle-open').addClass('moodle-close');
     },
 
