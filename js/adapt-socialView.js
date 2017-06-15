@@ -35,7 +35,7 @@ define(function(require) {
       // prevents reloading if iframe is currently loaded
       if(document.getElementById('social-iframe').src != this.attributes._social._link) {
         Adapt.trigger('sideView:loadIframe', "social", this.attributes._social._type, this.attributes._social._link)
-        Adapt.trigger('sideView:removeLoading');
+
       }
     },
 
@@ -59,14 +59,12 @@ define(function(require) {
     },
 
     render: function(blockModel) {
-      // // Convert model data into JSON
       this.setButtonName();
+
       var data = blockModel.toJSON();
       data = data._social;
-      var template = Handlebars.templates["social"];
-      var $selector = $('.' + blockModel.attributes._id + '>:first');
-      this.$el.html(template(data)).appendTo($selector);
-      return this;
+      var template = Handlebars.templates.social;
+      this.setElement(template(data)).$el.appendTo($('.' + blockModel.attributes._id + '>:first'));
     }
   });
 

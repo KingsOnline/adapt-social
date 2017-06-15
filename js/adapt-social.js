@@ -25,8 +25,8 @@ define(function(require) {
 
   function checkForMoodleAttr(blockModel) {
     var context = this;
-    if (typeof blockModel.attributes._moodle != "undefined") {
-      if (blockModel.attributes._moodle._isEnabled != false) {
+    if (typeof blockModel.attributes._social != "undefined") {
+      if (blockModel.attributes._social._isEnabled != false) {
         new socialView(blockModel);
       }
     }
