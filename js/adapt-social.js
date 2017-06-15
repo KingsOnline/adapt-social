@@ -4,12 +4,14 @@ define(function(require) {
   var Backbone = require('backbone');
   var socialView = require('extensions/adapt-social/js/adapt-socialView');
 
-  Adapt.on("pageView:ready", function() {
-    loopBlocksInPage(Adapt.contentObjects._byAdaptID[Adapt.location._currentId]);
+
+  Adapt.once('sideView:loaded', function() {
+    createSocial();
   });
 
-  Adapt.once('sideView:ready', function() {
-    createSocial();
+  Adapt.on('sideView:pageReady', function() {
+      console.log(Adapt.location);
+      loopBlocksInPage(Adapt.contentObjects._byAdaptID[Adapt.location._currentId]);
   });
 
   function loopBlocksInPage(currentPage) {
