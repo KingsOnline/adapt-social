@@ -3,7 +3,7 @@ define(function(require) {
   var Adapt = require('coreJS/adapt');
   var Backbone = require('backbone');
 
-  var moodleView = Backbone.View.extend({
+  var socialView = Backbone.View.extend({
 
     className: "moodle",
 
@@ -31,10 +31,10 @@ define(function(require) {
       $('.social').removeClass('hidden');
       $('.social').siblings().addClass('hidden');
       this.scrollToBlock();
-      $('.iframe-controls-title').text(this.attributes._moodle.buttonLabel);
+      $('.iframe-controls-title').text(this.attributes._social.buttonLabel);
       // prevents reloading if iframe is currently loaded
-      if(document.getElementById('social-iframe').src != this.attributes._moodle._link){
-        Adapt.trigger('sideView:loadIframe', "social", this.attributes._moodle._type, this.attributes._moodle._link)
+      if(document.getElementById('social-iframe').src != this.attributes._social._link) {
+        Adapt.trigger('sideView:loadIframe', "social", this.attributes._social._type, this.attributes._social._link)
         Adapt.trigger('sideView:removeLoading');
       }
     },
@@ -53,8 +53,8 @@ define(function(require) {
     },
 
     setButtonName: function() {
-      if (this.attributes._moodle.buttonLabel == undefined || this.attributes._moodle.buttonLabel == "") {
-        this.attributes._moodle.buttonLabel = this.attributes._moodle._type;
+      if (this.attributes._social.buttonLabel == undefined || this.attributes._social.buttonLabel == "") {
+        this.attributes._social.buttonLabel = this.attributes._social._type;
       }
     },
 
@@ -62,14 +62,13 @@ define(function(require) {
       // // Convert model data into JSON
       this.setButtonName();
       var data = blockModel.toJSON();
-      data = data._moodle;
-      var template = Handlebars.templates["moodle"];
+      data = data._social;
+      var template = Handlebars.templates["social"];
       var $selector = $('.' + blockModel.attributes._id + '>:first');
       this.$el.html(template(data)).appendTo($selector);
       return this;
     }
   });
 
-  // Return moodleView so it can be required
-  return moodleView;
+  return socialView;
 });
