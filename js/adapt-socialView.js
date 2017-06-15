@@ -31,7 +31,7 @@ define(function(require) {
       $('.social').removeClass('hidden');
       $('.social').siblings().addClass('hidden');
       this.scrollToBlock();
-      $('.iframe-controls-title').text(this.attributes._social.buttonLabel);
+      $('.sideview-controls-title').text(this.attributes._social.buttonLabel);
       // prevents reloading if iframe is currently loaded
       if(document.getElementById('social-iframe').src != this.attributes._social._link) {
         Adapt.trigger('sideView:loadIframe', "social", this.attributes._social._type, this.attributes._social._link)
@@ -47,7 +47,7 @@ define(function(require) {
     hideSocial: function(event) {
       if (event && event.preventDefault)
         event.preventDefault();
-      $('.moodle-view').removeClass('open').addClass('close');
+      $('.sideview').removeClass('open').addClass('close');
       $('.social-open-button.open').removeClass('open');
       $('body').removeClass('moodle-open').addClass('moodle-close');
     },

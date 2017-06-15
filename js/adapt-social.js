@@ -33,6 +33,6 @@ define(function(require) {
   }
 
   function createSocial() {
-    $('.moodle-iframe-holder').append("<div class='social hidden'><iframe name='socialIframe' id='social-iframe' src='' class='social-iframe'></iframe></div>");
+    $('.sideview-iframe-holder').append("<div class='social hidden'><iframe name='socialIframe' id='social-iframe' src='' class='social-iframe'></iframe></div>");
   }
 });
