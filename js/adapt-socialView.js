@@ -35,7 +35,6 @@ define(function(require) {
       // prevents reloading if iframe is currently loaded
       if(document.getElementById('social-iframe').src != this.attributes._social._link) {
         Adapt.trigger('sideView:loadIframe', "social", this.attributes._social._type, this.attributes._social._link);
-        Adapt.trigger('sideView:removeLoading');
       }
 
       var context = this;
