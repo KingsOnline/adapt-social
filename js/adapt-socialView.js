@@ -10,10 +10,24 @@ define(function(require) {
     initialize: function(blockModel) {
       this.listenTo(Adapt, 'remove', this.remove);
       this.render(blockModel);
+      console.log('load');
+
+      Adapt.on("sideView:appendRun", function(runNumber) {
+        console.log(runNumber);
+        if (Adapt.course.get('_myNotes')._isEnabled) {
+          Adapt.course.get('_myNotes')._notesManager = Adapt.course.get('_myNotes')._notesManager + '_' + runNumber;
+          Adapt.course.get('_myNotes')._newNote = Adapt.course.get('_myNotes')._newNote + '_' + runNumber;
+        }
+      });
+
     },
 
     events: {
       'click button.social-open-button': 'launchButton'
+    },
+
+    once: function() {
+      console.log('e');
     },
 
     launchButton: function(event) {
