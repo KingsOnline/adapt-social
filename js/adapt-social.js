@@ -11,11 +11,11 @@ define(function(require) {
     setupSocial(Adapt.contentObjects._byAdaptID[Adapt.location._currentId][0], createView);
   });
 
-  Adapt.once("sideView:appendRun", function(runNumber) {
+  Adapt.once("sideView:appendRun", function(routeAdress, number) {
     console.log(Adapt.contentObjects);
     _.each(Adapt.contentObjects.models, function(contentObjectModel) {
       setupSocial(contentObjectModel, function(blockModel) {
-        appendRun(runNumber, blockModel);
+        setupLink(routeAdress, number, blockModel);
       });
     });
   });
@@ -33,8 +33,9 @@ define(function(require) {
     });
   }
 
-  function appendRun(runNumber, blockModel) {
-    blockModel.get('_social')._link += '_' + runNumber;
+  function setupLink(routeAdress, runNumber, blockModel) {
+    blockModel.get('_social')._link = routeAdress + blockModel.get('_social')._link + '_' + runNumber;
+    console.log(blockModel.get('_social')._link);
   }
 
   function createView(blockModel) {
