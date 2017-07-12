@@ -23,18 +23,17 @@
         "block": {
           "type": "object",
           "properties": {
-            "_moodle": {
+            "_social": {
               "type": "object",
               "required": false,
-              "legend": "Moodle",
+              "legend": "Social",
               "properties": {
                 "_isEnabled": {
                   "type": "boolean",
                   "default": false,
                   "title": "Enable for this block",
                   "legend": "Guide to use this extension <a href='https://docs.google.com/a/kingsonline.eu/document/d/1f7pWiWsz2QtTK7m70ETs6txA_oYtMecPIzR00NeKJX4/edit?usp=sharing'> here</a>.",
-                  "inputType": "Checkbox",
-                  "help": ""
+                  "inputType": "Checkbox"
                 },
                 "_type": {
                   "type": "string",

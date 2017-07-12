@@ -48,12 +48,8 @@ define(function(require) {
       Adapt.scrollTo($($firstChild), {duration: 700});
     },
 
-    hideSocial: function(event) {
-      if (event && event.preventDefault)
-        event.preventDefault();
-      $('.sideview').removeClass('open').addClass('close');
+    hideSocial: function() {
       $('.social-open-button.open').removeClass('open');
-      $('body').removeClass('moodle-open').addClass('moodle-close');
     },
 
     setButtonName: function() {
