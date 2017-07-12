@@ -50,11 +50,11 @@
                 "_link": {
                   "type": "string",
                   "required": false,
-                  "default": "",
+                  "default": "social_act1",
                   "title": "Link",
                   "inputType": "Text",
                   "validators": [],
-                  "help": "Paste in the link to your Moodle component."
+                  "help": "Link to the activity."
                 },
                 "buttonLabel": {
                   "type": "string",
