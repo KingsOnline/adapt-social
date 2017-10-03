@@ -12,7 +12,6 @@ define(function(require) {
   });
 
   Adapt.once("sideView:appendRun", function(routeAdress, number) {
-    console.log(Adapt.contentObjects);
     _.each(Adapt.contentObjects.models, function(contentObjectModel) {
       setupSocial(contentObjectModel, function(blockModel) {
         setupLink(routeAdress, number, blockModel);
@@ -35,7 +34,6 @@ define(function(require) {
 
   function setupLink(routeAdress, runNumber, blockModel) {
     blockModel.get('_social')._link = routeAdress + blockModel.get('_social')._link + '_' + runNumber;
-    console.log(blockModel.get('_social')._link);
   }
 
   function createView(blockModel) {
