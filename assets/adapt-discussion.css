@@ -1,4 +1,4 @@
-  #dropdowncontainer, #id_cancel, #page-header, #page-footer, #page-header, .navbar, #dock, #block-region-side-pre, .breadcrumb-button, .fitem_id_mailnow, .fitemtitle, .fdescription, .fheader, .block_adminblock, .settings, #fitem_id_subject, #fitem_id_attachments, ol.breadcrumb li:not(:last-child), .error, h2, input, .fitem_fcheckbox {
+  #dropdowncontainer, #id_cancel, #page-header, #page-footer, #page-header, .navbar, #dock, #block-region-side-pre, .breadcrumb-button, .fitem_id_mailnow, .fitemtitle, .fdescription, .fheader, .block_adminblock, .settings, #fitem_id_subject, #fitem_id_attachments, ol.breadcrumb li:not(:nth-last-child(-n+2)), .error, h2, input, .fitem_fcheckbox {
       display: none !important;
   }
 
