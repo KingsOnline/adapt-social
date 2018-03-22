@@ -32,7 +32,6 @@
                   "type": "boolean",
                   "default": false,
                   "title": "Enable for this block",
-                  "legend": "Guide to use this extension <a href='https://docs.google.com/a/kingsonline.eu/document/d/1f7pWiWsz2QtTK7m70ETs6txA_oYtMecPIzR00NeKJX4/edit?usp=sharing'> here</a>.",
                   "inputType": "Checkbox"
                 },
                 "_type": {
@@ -50,7 +49,7 @@
                 "_link": {
                   "type": "string",
                   "required": false,
-                  "default": "social_act1",
+                  "default": "",
                   "title": "Link",
                   "inputType": "Text",
                   "validators": [],
