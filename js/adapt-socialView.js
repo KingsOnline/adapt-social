@@ -5,7 +5,7 @@ define(function(require) {
 
   var socialView = Backbone.View.extend({
 
-    className: "moodle",
+    className: "social",
 
     initialize: function(blockModel) {
       this.listenTo(Adapt, 'remove', this.remove);
@@ -60,7 +60,6 @@ define(function(require) {
 
     render: function(blockModel) {
       this.setButtonName();
-
       var data = blockModel.toJSON();
       data = data._social;
       var template = Handlebars.templates.social;
