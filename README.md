@@ -3,6 +3,10 @@ adapt-social
 
 Adapt-social is an extension for the Adapt Framework. It attaches a button to an Adapt block which when clicked loads an iFrame launched inside the [SideView extension](https://github.com/KingsOnline/adapt-sideView). The learner can interact with this external platform whilst they are using the Adapt course to engage in social interactions with other learners.
 
+**Please ensure that you have the SideView extension installed and enabled before you setup this extension.**
+
+This video shows the features and functionality of the Social extension:
+
 [![Youtube video](http://img.youtube.com/vi/ph-BK7Bgv7g/0.jpg)](http://www.youtube.com/watch?v=ph-BK7Bgv7g)
 
 
@@ -28,6 +32,8 @@ We use the activities from our LMS and use CSS to modify what they would look li
 ## Limitations
 
 *  Poor Accessibility support. Not really sure how to support navigation between two windows.
+*  No RTL support.
+*  Requires configuration of the `assets/[x].css` files to make it work best.
 
 ----------------------------
 **Version number:**  0.0.1   <a href="https://community.adaptlearning.org/" target="_blank"><img src="https://github.com/adaptlearning/documentation/blob/master/04_wiki_assets/plug-ins/images/adapt-logo-mrgn-lft.jpg" alt="adapt learning logo" align="right"></a>
