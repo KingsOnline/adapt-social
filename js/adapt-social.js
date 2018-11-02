@@ -33,6 +33,7 @@ define(function(require) {
   }
 
   function setupLink(routeAdress, runNumber, blockModel) {
+    // get data from server. write it in Adapt as string
     blockModel.get('_social')._link = routeAdress + blockModel.get('_social')._link + '_' + runNumber;
   }
 
